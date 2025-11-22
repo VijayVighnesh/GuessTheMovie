@@ -7,14 +7,20 @@ const Game: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
   const [guess, setGuess] = useState('');
   const [guessesLeft, setGuessesLeft] = useState(5);
-  const [timer, setTimer] = useState('01:08');
+  const [timer, setTimer] = useState('00:00');
+
+   const [Guesses, setGuesses] = useState([] as string[]);
+
+const addGuess = (guess : string) => {
+    if (!guess.trim()) return;
+    setGuesses([...Guesses, guess]);
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
       setTimer((prev) => {
         const [min, sec] = prev.split(':').map(Number);
-        const totalSec = min * 60 + sec - 1;
-        if (totalSec <= 0) return '00:00';
+        const totalSec = min * 60 + sec + 1;
         const newMin = Math.floor(totalSec / 60);
         const newSec = totalSec % 60;
         return `${newMin.toString().padStart(2, '0')}:${newSec.toString().padStart(2, '0')}`;
@@ -25,6 +31,7 @@ const Game: React.FC = () => {
 
   const handleGuess = (): void => {
     if (guess.trim()) {
+      addGuess(guess);
       setGuessesLeft((prev) => prev - 1);
       setGuess('');
     }
@@ -65,6 +72,18 @@ const Game: React.FC = () => {
           <div className="game-info">
             <div className="timer">{timer}</div>
             <div className="guesses-left">{guessesLeft} Guesses Left</div>
+          </div>
+
+
+          <div className="previous-guesses">
+            <h4>Previous Guesses:</h4>
+            {Guesses.length === 0 ? (
+              <p>No guesses yet.</p>
+            ) : (
+                Guesses.map((g, index) => (
+                  <p key={index}>{g}</p>
+                ))
+            )}
           </div>
         </div>
       </div>
