@@ -1,12 +1,22 @@
-TO run the FE setup : 
+# Guess The Movie
 
-1. Navigate to /frontend in terminal
-2. Run "npm run start"
-3. React app will be running on the port 3000.
+A movie guessing game with React frontend and Node.js backend.
 
+## Quick Start
 
-TO run BE setup: 
+### Frontend Setup
+1. Navigate to `/frontend` in terminal
+2. Run `npm install` (first time only)
+3. Run `npm run start`
+4. React app will be running on port 3000
 
-1. Navigate to /backend in terminal
-2. Run node src/index.js
-3. Node js BE will be running on the port 5001
+### Backend Setup
+1. Navigate to `/backend` in terminal
+2. Run `npm install` (first time only)
+3. Run `node src/index.js`
+4. Node.js backend will be running on port 5001
+
+## Detailed Documentation
+
+- [Frontend README](./frontend/README.md) - React TypeScript application
+- [Backend README](./backend/README.md) - Node.js API server
