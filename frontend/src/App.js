@@ -24,7 +24,23 @@ function App() {
 
   return (
     <div className="App">
-      <p>This is the Basic frontend setup</p>
+      <p className="Title1"> Guess It! </p>
+
+      <p className="Description1">
+        Guess Today's Mystery Telugu movie in 5 chances
+      </p>
+
+      <div className="InfoContainer">
+        <div className="InfoText">
+          <p> A new telugu movie to guess every day with challenging hints</p>
+          <p>Try to guess the movie with as few hints as possible </p>
+          <p>Share your results with friends</p>
+        </div>
+      </div>
+
+      <div className="ButtonContainer">
+        <button className="StartButton"> Start Game </button>
+      </div>
 
       <div>
         <button onClick={handleButtonClick} disabled={loading}>

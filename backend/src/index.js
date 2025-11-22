@@ -7,8 +7,11 @@ app.use(express.json());
 app.use(cors()); // allow requests from localhost dev servers
 
 // simple API returning JSON
+
+const messsage = "Hello from backend!";
+
 app.get("/api/message", (req, res) => {
-  res.json({ message: "Hello from backend!" });
+  res.json({ message: messsage });
 });
 
 // root for quick health-check
